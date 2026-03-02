@@ -28,6 +28,7 @@
         }
 
         .section {
+            position: relative
             width: 100%;
             max-width: 720px;
             background: rgba(15, 15, 15, 0.9);
@@ -36,6 +37,7 @@
             padding: 25px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.8);
             backdrop-filter: blur(10px);
+            
         }
 
         .section-header {
@@ -90,7 +92,22 @@
             }
             .section {
                 padding: 15px;
-            }
+                .legend-frame::before {
+                    content: "";
+                    position: absolute;
+                    top: -5px;
+                    left: -5px;
+                    right: -5px;
+                    bottom: -5px;
+                    background: url('fire_frame.png') no-repeat;
+                    background-size: 100% 100%;
+                    pointer-events: none;
+                    z-index: 10;
+                }
+                .legend-frame .hero-strip {
+                    position: relative;
+                    z-index: 5;
+                }
         }
     </style>
 </head>
@@ -121,9 +138,8 @@
             </div>
         </section>
 
-        <section class="section">
-            <div class="section-header">
-                <h2>Легенди дедлока</h2>
+        <section class="section legend-frame"> <div class="section-header">
+        <h2>Легенди дедлока</h2>
             </div>
             <div class="gallery">
                 <img src="legend1.png" alt="Legend 1" class="hero-strip">
@@ -136,4 +152,5 @@
 
 </body>
 </html>
+
 
