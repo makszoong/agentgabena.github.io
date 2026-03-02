@@ -3,132 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deadlock Fansite</title>
-<style>
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: 'Segoe UI', sans-serif;
-        background: url('bg.png') no-repeat center center fixed;
-        background-size: cover;
-        color: white;
-    }
+    <title>Deadlock Legends</title>
+    <style>
+        /* Настройки фона всей страницы */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: url('bg.png') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            display: flex;
+            justify-content: center;
+        }
 
-    .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 40px;
-        padding: 40px 10px;
-    }
+        /* Основной контейнер */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            padding: 50px 20px;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.3); /* Легкое затемнение поверх фона */
+            min-height: 100vh;
+        }
 
-    .section {
-        width: 90%;
-        max-width: 1100px;
-        background: rgba(15, 15, 15, 0.85);
-        border: 1px solid #edb65c;
-        border-radius: 12px;
-        padding: 20px;
-        backdrop-filter: blur(8px);
-    }
+        /* Общие стили для каждого из трех отсеков */
+        .section {
+            width: 100%;
+            max-width: 720px; /* Оптимально для картинок шириной 652px */
+            background: rgba(15, 15, 15, 0.9);
+            border: 2px solid #edb65c; /* Золотая рамка в стиле игры */
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+        }
 
-    .section-header {
-        text-align: center;
-        margin-bottom: 20px;
-        border-bottom: 1px solid rgba(237, 182, 92, 0.3);
-        padding-bottom: 15px;
-    }
+        /* Заголовки секций */
+        .section-header {
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(237, 182, 92, 0.3);
+            padding-bottom: 15px;
+        }
 
-    .section-header img {
-        height: 120px;
-        object-fit: contain;
-    }
+        .section-header img {
+            max-height: 70px; /* Размер PNG-логотипа в первой секции */
+            object-fit: contain;
+        }
 
-    h2 {
-        color: #edb65c;
-        margin: 0;
-        text-transform: uppercase;
-    }
+        h2 {
+            margin: 0;
+            color: #edb65c;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1.6rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
 
-    .gallery {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-    }
+        /* Список картинок - строго в колонку */
+        .gallery {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px; /* Расстояние между картинками */
+        }
 
-    .card {
-        flex: 0 1 300px;
-        background: rgba(40, 40, 40, 0.9);
-        border-radius: 8px;
-        overflow: hidden;
-        border: 1px solid #444;
-        transition: 0.3s;
-    }
+        /* Стили для твоих картинок 652x42 */
+        .hero-strip {
+            width: 652px;
+            height: 42px;
+            display: block;
+            object-fit: fill; /* Гарантирует, что картинка видна полностью без обрезки */
+            border: 1px solid #333;
+            border-radius: 4px;
+            transition: all 0.2s ease-in-out;
+        }
 
-    .card:hover {
-        transform: translateY(-5px);
-        border-color: #edb65c;
-    }
+        /* Эффект при наведении */
+        .hero-strip:hover {
+            transform: scale(1.02);
+            border-color: #edb65c;
+            box-shadow: 0 0 15px rgba(237, 182, 92, 0.4);
+            cursor: pointer;
+        }
 
-    .card img {
-        width: 100%;
-        height: 180px;
-        object-fit: cover;
-    }
-
-    .card-text {
-        padding: 12px;
-        text-align: center;
-        font-weight: bold;
-    }
-</style>
+        /* Адаптация под мобильные устройства */
+        @media (max-width: 700px) {
+            .hero-strip {
+                width: 100%; /* На смартфонах картинка сузится по ширине экрана */
+                height: auto;
+            }
+            .section {
+                padding: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<div class="container">
+    <div class="container">
 
-    <section class="section">
-        <div class="section-header">
-            <img src="logo.png" alt="Logo PNG"> </div>
-        <div class="gallery">
-            <div class="card">
-                <img src="hero1.png" alt="Герой 1">
+        <section class="section">
+            <div class="section-header">
+                <img src="logo.png" alt="Logo Section"> 
             </div>
-
-            <div class="card">
-            <img src="hero2.png" alt="Герой 2">
-        </div>
+            <div class="gallery">
+                <img src="hero1.png" alt="Hero 1" class="hero-strip">
+                <img src="hero2.png" alt="Hero 2" class="hero-strip">
             </div>
-    </section>
+        </section>
 
-    <section class="section">
-        <div class="section-header">
-            <h2>Агенти Габена не витримали</h2>
-        </div>
-        <div class="gallery">
-            <div class="card">
-                <img src="pic2.jpg" alt="Картинка 2">
-                <div class="card-text">Агент №1</div>
+        <section class="section">
+            <div class="section-header">
+                <h2>Агенти Габена не витримали</h2>
             </div>
-        </div>
-    </section>
-
-    <section class="section">
-        <div class="section-header">
-            <h2>Легенди дедлока</h2>
-        </div>
-        <div class="gallery">
-            <div class="card">
-                <img src="pic3.jpg" alt="Картинка 3">
-                <div class="card-text">Легенда №1</div>
+            <div class="gallery">
+                <img src="agent1.png" alt="Agent 1" class="hero-strip">
+                <img src="agent2.png" alt="Agent 2" class="hero-strip">
             </div>
-        </div>
-    </section>
+        </section>
 
-</div>
+        <section class="section">
+            <div class="section-header">
+                <h2>Легенди дедлока</h2>
+            </div>
+            <div class="gallery">
+                <img src="legend1.png" alt="Legend 1" class="hero-strip">
+                <img src="legend2.png" alt="Legend 2" class="hero-strip">
+                <img src="legend3.png" alt="Legend 3" class="hero-strip">
+            </div>
+        </section>
+
+    </div>
 
 </body>
 </html>
-
-
