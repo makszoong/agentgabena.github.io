@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deadlock Legends</title>
+    <title>Deadlock Legends | Агенти Габена</title>
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
         .main-header {
             width: 100%;
             background: rgba(10, 10, 10, 0.95);
@@ -36,6 +40,30 @@
             transform: scale(1.05);
         }
 
+        .header-nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        .header-nav a {
+            color: #edb65c;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            transition: 0.3s;
+            padding: 5px 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .header-nav a:hover {
+            color: white;
+            border-bottom: 2px solid #edb65c;
+            text-shadow: 0 0 10px rgba(237, 182, 92, 0.6);
+        }
+
+        /* ОСНОВНЫЕ СТИЛИ СТРАНИЦЫ */
         body {
             margin: 0;
             padding: 0;
@@ -51,11 +79,11 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 40px;
+            gap: 60px;
             padding: 50px 20px;
-            padding-top: 120px;
+            padding-top: 140px;
             width: 100%;
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.4);
             min-height: 100vh;
         }
 
@@ -66,20 +94,21 @@
             background: rgba(15, 15, 15, 0.9);
             border: 2px solid #edb65c;
             border-radius: 12px;
-            padding: 25px;
+            padding: 30px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.8);
             backdrop-filter: blur(10px);
+            scroll-margin-top: 120px;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             border-bottom: 1px solid rgba(237, 182, 92, 0.3);
             padding-bottom: 15px;
         }
 
         .section-header img {
-            max-height: 70px;
+            max-height: 80px;
             object-fit: contain;
         }
 
@@ -96,7 +125,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
         }
 
         .hero-strip {
@@ -112,17 +141,15 @@
         }
 
         .hero-strip:hover {
-            transform: scale(1.02);
+            transform: scale(1.03);
             border-color: #edb65c;
             box-shadow: 0 0 15px rgba(237, 182, 92, 0.4);
             cursor: pointer;
         }
 
         .legend-frame {
-            padding: 100px 120px !important;
-            width: 100%;
             max-width: 950px;
-            min-height: auto;
+            padding: 100px 120px !important;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -133,8 +160,8 @@
             content: "";
             position: absolute;
             top: -10px;
-            left: -30px;
-            right: -30px;
+            left: -35px;
+            right: -35px;
             bottom: -10px;
             background: url('fire_frame.png') no-repeat;
             background-size: 100% 100%;
@@ -148,17 +175,24 @@
             position: relative;
             z-index: 11;
         }
-
+        
         @media (max-width: 700px) {
             .hero-strip {
                 width: 100%;
                 height: auto;
             }
-            .section {
-                padding: 15px;
+            .header-nav {
+                gap: 10px;
+            }
+            .header-nav a {
+                font-size: 0.7rem;
             }
             .legend-frame {
                 padding: 60px 40px !important;
+            }
+            .legend-frame::before {
+                left: -10px;
+                right: -10px;
             }
         }
     </style>
@@ -167,16 +201,23 @@
 
     <header class="main-header">
         <div class="header-content">
-            <a href="#" class="logo-link">
+            <a href="#home" class="logo-link">
                 <img src="logosite.png" alt="Агенти Габена" class="header-photo">
             </a>
+            
+            <nav class="header-nav">
+                <a href="#home">Головна</a>
+                <a href="#agents">Агенти</a>
+                <a href="#legends">Легенди</a>
+            </nav>
         </div>
     </header>
 
     <div class="container">
-        <section class="section">
+        
+        <section class="section" id="home">
             <div class="section-header">
-                <img src="logo.png" alt="Logo Section"> 
+                <img src="logo.png" alt="Logo Main"> 
             </div>
             <div class="gallery">
                 <img src="hero1.png" alt="Hero 1" class="hero-strip">
@@ -192,7 +233,7 @@
             </div>
         </section>
 
-        <section class="section">
+        <section class="section" id="agents">
             <div class="section-header">
                 <h2>Агенти Габена які не витримали</h2>
             </div>
@@ -202,7 +243,7 @@
             </div>
         </section>
 
-        <section class="section legend-frame">
+        <section class="section legend-frame" id="legends">
             <div class="section-header">
                 <h2>Легенди дедлока</h2>
             </div>
@@ -212,6 +253,7 @@
                 <img src="legend3.png" alt="Legend 3" class="hero-strip">
             </div>
         </section>
+
     </div>
 
 </body>
