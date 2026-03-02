@@ -5,6 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deadlock Legends</title>
     <style>
+        .main-header {
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            border-bottom: 2px solid #edb65c;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 8px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-photo {
+            height: 60px;
+            width: auto;
+            display: block;
+            transition: transform 0.2s;
+        }
+
+        .header-photo:hover {
+            transform: scale(1.05);
+        }
+
         body {
             margin: 0;
             padding: 0;
@@ -22,6 +53,7 @@
             align-items: center;
             gap: 40px;
             padding: 50px 20px;
+            padding-top: 120px;
             width: 100%;
             background: rgba(0, 0, 0, 0.3);
             min-height: 100vh;
@@ -37,7 +69,6 @@
             padding: 25px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.8);
             backdrop-filter: blur(10px);
-            
         }
 
         .section-header {
@@ -76,6 +107,8 @@
             border: 1px solid #333;
             border-radius: 4px;
             transition: all 0.2s ease-in-out;
+            position: relative;
+            z-index: 5;
         }
 
         .hero-strip:hover {
@@ -84,6 +117,7 @@
             box-shadow: 0 0 15px rgba(237, 182, 92, 0.4);
             cursor: pointer;
         }
+
         .legend-frame {
             padding: 100px 120px !important;
             width: 100%;
@@ -94,24 +128,27 @@
             justify-content: center;
             box-sizing: border-box;
         }
-                .legend-frame::before {
-                    content: "";
-                    position: absolute;
-                    top: -10px;
-                    left: -30px;
-                    right: -30px;
-                    bottom: -10px;
-                    background: url('fire_frame.png') no-repeat;
-                    background-size: 100% 100%;
-                    pointer-events: none;
-                    z-index: 10;
-                }
-                .legend-frame .hero-strip {
-                    width: 100;
-                    max-width: 652px;
-                    position: relative;
-                    z-index: 11;
-                }
+
+        .legend-frame::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -30px;
+            right: -30px;
+            bottom: -10px;
+            background: url('fire_frame.png') no-repeat;
+            background-size: 100% 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .legend-frame .hero-strip {
+            width: 100%;
+            max-width: 652px;
+            position: relative;
+            z-index: 11;
+        }
+
         @media (max-width: 700px) {
             .hero-strip {
                 width: 100%;
@@ -119,14 +156,24 @@
             }
             .section {
                 padding: 15px;
-                }
+            }
+            .legend-frame {
+                padding: 60px 40px !important;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <header class="main-header">
+        <div class="header-content">
+            <a href="#" class="logo-link">
+                <img src="logosite.png" alt="Агенти Габена" class="header-photo">
+            </a>
+        </div>
+    </header>
 
+    <div class="container">
         <section class="section">
             <div class="section-header">
                 <img src="logo.png" alt="Logo Section"> 
@@ -155,8 +202,9 @@
             </div>
         </section>
 
-        <section class="section legend-frame"> <div class="section-header">
-        <h2>Легенди дедлока</h2>
+        <section class="section legend-frame">
+            <div class="section-header">
+                <h2>Легенди дедлока</h2>
             </div>
             <div class="gallery">
                 <img src="legend1.png" alt="Legend 1" class="hero-strip">
@@ -164,17 +212,7 @@
                 <img src="legend3.png" alt="Legend 3" class="hero-strip">
             </div>
         </section>
-
     </div>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
